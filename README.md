@@ -7,7 +7,23 @@
 
 
 
+### How to run
 
+
+
+- Task 1
+
+*make sure **input.txt** is in the current directory*
+
+```
+> tclsh code.tcl
+```
+
+
+
+- Task 2
+  -  Open [App Diagrams](https://app.diagrams.net/)
+  - <kbd>File</kbd>  → <kbd>import from</kbd> → <kbd>device</kbd> -> <kbd>Bayt Task ER.drawio</kbd>
 
 ### Screenshots
 
