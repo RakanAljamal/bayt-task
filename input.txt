@@ -1,8 +1,7 @@
 This is an input
-3
-_2
-&^!#@rak
-rak_rakan
-7.56656566
-12
+20
+Ok this is good so far
+5
+Concat me!!
+_Invalidate Me
 Welcome to TLC Demo
