@@ -12,6 +12,16 @@ proc isFloat {float} {
     return [expr abs($float - int($float)) > 0 ? 1 : 0]
 }
 
+proc isAllowed {val} {
+
+    regexp {(^[A-Za-z0-9])} "$val" match
+    set code [catch {
+        set err $match
+    } result]
+
+    return [expr !$code]
+}
+
 set numbers {}
 set oddNumbers {}
 set evenNumbers {}
@@ -25,13 +35,7 @@ set fp [open "input.txt" r]
 while { [gets $fp data] >= 0 } {
     lappend linesSize [string length [string trim $data]]
 
-    if {[isNumber $data]} {
-
-        if {[isFloat $data]} {
-            puts "INVALID LINE"
-            lappend invalidLines $data
-            continue
-        }
+    if {[isNumber $data] && ![isFloat $data]} {
 
         if {[isOdd $data]} {
             puts [expr $data / 2.0]
@@ -45,6 +49,12 @@ while { [gets $fp data] >= 0 } {
         lappend numbers $data
 
     } else {
+        
+        if {![isAllowed $data]} {
+            puts "INVALID LINE"
+            lappend invalidLines $data
+            continue
+        }
         puts $data
 
         if {[string trim $data] != ""} {
